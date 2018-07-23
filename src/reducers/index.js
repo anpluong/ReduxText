@@ -1,7 +1,13 @@
-import { combineReducers } from 'redux';
+import {ADD} from '../actions'
 
-const rootReducer = combineReducers({
-  state: (state = {}) => state
-});
+const messageReducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD:     
+      // console.log(action.message)
+      return [...state, action.message];
+    default:
+      return state;
+  }
+};
 
-export default rootReducer;
+export default messageReducer;
